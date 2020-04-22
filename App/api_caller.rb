@@ -1,12 +1,3 @@
-require 'rest-client'
-
-#this is to make sure my test suite worked and passed
-class HelloWorld
-    def say_hello
-        "Hello World!"
-    end
-end
-
 #this is the new code I am trying to transfer from JS to RB
 class Get_API_Call
     RestClient.get ' "https://www.googleapis.com/books/v1/volumes?q="', {params: {bookId: index +1 , bookTitle:, bookAuthor:, bookPublisher:}}
