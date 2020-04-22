@@ -11,7 +11,8 @@ RSpec.describe HelloWorld do
         end
     end
 
-Rspec.describe New Class do
+
+#Rspec.describe New Class do
 
 
    # context "When testing a book search" do
