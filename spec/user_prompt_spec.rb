@@ -1,4 +1,4 @@
-require 'user_prompt'
+require 'App/user_prompt'
 
 RSpec.describe UserPrompt do
     
