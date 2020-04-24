@@ -1,23 +1,50 @@
-#this is the new code I am trying to transfer from JS to RB
-class Get_API_Call
-    RestClient.get ' "https://www.googleapis.com/books/v1/volumes?q="', {params: {bookId: index +1 , bookTitle:, bookAuthor:, bookPublisher:}}
+require 'rest-client'
+require 'json'
+require 'pry'
+
+
+def call_api(user_search_parameters)
+    url = "https://www.googleapis.com/books/v1/volumes?q=" + user_search_parameters
+    return url
 end
 
-class Call_The_API
-    .get(Get_API_Call(params))
-    .then(API_Succsess_Handler)
-end
-
-class API_Succsess_Handler(response)
-    def book_info_array
-        response.data.items do
+def json_parse(url)
+    begin
+        response = RestClient.get(url)
+    rescue RestClient::ExceptionWithResponse => e
+        puts("error, please type in the name, genre or topic of a book")
     end
-    def consoleTable
-        top_5_results(book_info_array) do
-    end
+
+    data = JSON.parse(response.body)
+    return data
 end
 
+def top_5_results(book_info_array)
+    items = book_info_array["items"]
+    info_array_length = book_info_array.length
+    min_index = 5
+    if info_array_length  < 5
+        min_index = info_array_length
+    else
+        min_index = 5
+    end
 
+    books = []
+    for index in 0..min_index + 1
+        book = Hash.new
+        book["id"] = index + 1
+        book["title"] = items[index]["volumeInfo"]["title"]
+        book["authors"] = items[index]["volumeInfo"]["authors"]
+        book["publisher"] = items[index]["volumeInfo"]["publisher"]
+        books[index] = book
+    end
+    return books
+end
+
+url = call_api("cooking")
+data = json_parse(url)
+books = top_5_results(data)
+puts(books)
 
 
 

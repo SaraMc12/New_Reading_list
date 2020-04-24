@@ -1,4 +1,4 @@
-require 'reading_list'
+require './app/reading_list'
 
 
 RSpec.describe HelloWorld do
