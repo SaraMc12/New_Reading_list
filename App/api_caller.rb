@@ -3,7 +3,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-
+# API CALL
 def call_api(user_search_parameters)
     url = "https://www.googleapis.com/books/v1/volumes?q=" + user_search_parameters
     return url
@@ -46,9 +46,9 @@ def user_prompt
     puts "Please select a book for your reading list"
 end
 
-
+# Load JSON READING LIST TO TERMINAL
 puts(user_prompt)
-url = call_api("cooking")
+url = call_api("england")
 data = json_parse(url)
 books = top_5_results(data)
 puts(books)
