@@ -1,20 +1,14 @@
-require './app/api_caller'
+require './app/google_books_list'
 
-        describe call_api do
-        context"When method calls the api" do
-        it "returns http success" do
-          expect(api_caller).to eq("cooking")
-          "https://www.googleapis.com/books/v1/volumes?q=cooking" 
+      RSpec.describe GoogleBooksList do
+        context"When I call top 5 results" do
+        it "returns 5 books" do
+          book_list = GoogleBooksList.new("england").top_5_results
+          expect(book_list.length).to eq(5)
+          expect(book_list[0]["title"]).to eq("The Description of England") 
+          expect(book_list[0].keys).to match_array(["title", "authors", "publisher", "id"])
         end
       end
       
-    end
-
-      describe data do
-        context "when method data is called" do
-        it "should return title, author and publisher attributes" do
-        data_response = JSON.parse(response.body)
-          expect(hash_body.keys).to match_array(["title", "authors", "publisher"])
-        end
-      end
+    
 end
