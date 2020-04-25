@@ -1,7 +1,18 @@
-require_relative "api_caller"
+require_relative "google_books_list"
+require "pry"
 
-call_the_api = require(./app/api_caller).call_the_api
-error_handler = require(./api_caller).json_parse
+# ClassNamesLookLikeThis
+# most_variables_look_like_this
+# CONSTANTS_ARE_LOUD
+# paths/to/files/are/snake_case.rb
 
+england_list = GoogleBooksList.new("england")
+england_books = england_list.top_5_results
+puts(england_books)
+
+spain_list = GoogleBooksList.new("spain")
+spain_books = spain_list.top_5_results
+
+puts(spain_books)
 
 

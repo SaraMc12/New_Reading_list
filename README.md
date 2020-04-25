@@ -13,3 +13,7 @@ gem install rspec -v 3.5.0
 run Rspec
 
 it works!
+
+https://www.rubydoc.info/github/rest-client/rest-client
+
+https://ruby-doc.org/core-2.7.0/Hash.html
