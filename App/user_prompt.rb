@@ -1,18 +1,28 @@
-# require 'rest-client'
+ require 'rest-client'
+ require_relative 'google_books_list'
+ require_relative "user_list"
 
 #this is to make sure my test suite worked and passed
-class User_Prompt
+class UserPrompt
     
     def greeting_prompt
-        "Hello, here are some books to choose from"
+        puts "Hello, here are some books to choose from"
+        search_term = gets.strip
+        puts "Search Term given is " + search_term
+        list = GoogleBooksList.new(search_term)
+        books = list.top_5_results
+        puts(books)
+        return(books)
+        
     end
     
-    def selection_prompt()
-        "Please select a book to save to your reading list"
-       #allow user to select a book by it's ID
-        # @select_a_book
-      # it will take that array and save the info into an external json file
-        # @update_json
+    def selection_prompt(books)
+        puts "Please select a book to save to your reading list"
+        selection_response = gets.strip
+        user_list = UserList.new
+        # lookup syntax to select one book out of hash
+
+        user_list.save_book_to_reading_list(books[selection_response.to_i - 1])
     end
 
     def confirmation_prompt
