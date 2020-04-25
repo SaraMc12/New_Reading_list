@@ -1,11 +1,17 @@
-require 'api_caller'
+require './app/api_caller'
 
-Rspec.describe Get_Api_Call do
-    
-    context "When calling google books Api"do
-        it "Should return the correct URL"do
-            expect(Get_Api_Call("cats")).to eq "https://www.googleapis.com/books/v1/volumes?q=cats"
-            
+        describe call_api do
+        context"When method calls the api" do
+        it "returns http success" do
+          expect(api_caller).to eq("cooking")
+          "https://www.googleapis.com/books/v1/volumes?q=cooking" 
         end
-    end
+        # it "JSON body response contains title, author and publisher attributes" do
+        #   json_response = JSON.parse(response.body)
+        #   expect(hash_body.keys).to match_array(["title", "authors", "publisher"])
+        # end
+      end
 end
+    
+    
+

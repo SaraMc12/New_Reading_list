@@ -1,4 +1,5 @@
 require './app/reading_list'
+require './app/api_caller'
 
 
 RSpec.describe HelloWorld do
@@ -11,29 +12,11 @@ RSpec.describe HelloWorld do
         end
     end
 
+    context "When testing user prompt" do
+        it "should return test" do
+            up = user_prompt.new
+            expect(up).to eq "test"
 
-#Rspec.describe New Class do
+        end
+    end
 
-
-   # context "When testing a book search" do
-       # it "should return a string" do
-        #user_params = ("")
-           # expect().to qu()
-       # end
-    #end
-
-   # context "When Book_search is called" do
-        #it "should create a new table for data" do
-       # end
-
-    #context "When table Data is populated" do
-        #it "Should set Params of bookId = index + 1" do
-          #  expect (top_5_results).to eq([i]+"bookTitle, bookAuthor, bookPublisher")
-            
-       # end
-    
-end
-
-
-
-        
