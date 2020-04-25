@@ -17,7 +17,7 @@ RSpec.describe User_Prompt do
         it "should ask a question" do
             up = User_Prompt.new
             message = up.confirmation_prompt
-            expect(message).to eq "Great choice (blank) has been added to your reading list" 
+            expect(message).to eq "Great choice your book has been added to your reading list" 
         end
 
 end
