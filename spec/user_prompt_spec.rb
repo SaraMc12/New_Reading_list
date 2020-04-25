@@ -1,4 +1,4 @@
-require './app/reading_list'
+require './app/user_prompt'
 
 RSpec.describe User_Prompt do
 

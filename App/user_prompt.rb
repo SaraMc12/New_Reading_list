@@ -1,16 +1,20 @@
-class User_Prompt
+# require 'rest-client'
 
-    def select_a_book_prompt
-        puts  "should say 'what book do you want to add to the reading list" 
+#this is to make sure my test suite worked and passed
+class User_Prompt
+    
+    def greeting_prompt
+        "Hello, here are some books to choose from"
     end
     
-    # def confirm_user_choice(select_confirm)
-    #     if select_confirm.book
-    #     puts select_confirm.book
-    #     book_selected = book_choices(select_confirm.book -1)
+    def selection_prompt
+        "Please select a book to save to your reading list"
+    end
 
-    # end
-
-
+    def confirmation_prompt
+        "Great choice (blank) has been added to your reading list"
+    end
 end
+
+
 
