@@ -41,10 +41,13 @@ def top_5_results(book_info_array)
     return books
 end
 
+
+
 url = call_api("cooking")
 data = json_parse(url)
 books = top_5_results(data)
 puts(books)
+
 
 
 
