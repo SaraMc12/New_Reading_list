@@ -1,8 +1,8 @@
  require 'rest-client'
  require_relative 'google_books_list'
  require_relative "user_list"
+ 
 
-#this is to make sure my test suite worked and passed
 class UserPrompt
     
     def greeting_prompt
@@ -20,7 +20,6 @@ class UserPrompt
         puts "Please select a book to save to your reading list"
         selection_response = gets.strip
         user_list = UserList.new
-        # lookup syntax to select one book out of hash
 
         user_list.save_book_to_reading_list(books[selection_response.to_i - 1])
     end
