@@ -1,7 +1,6 @@
-
 require 'rest-client'
 require 'json'
-require 'pry'
+
 
 
 class GoogleBooksList
@@ -32,7 +31,7 @@ class GoogleBooksList
         return books
     end
 
-     private
+    private
 
     def url
         "https://www.googleapis.com/books/v1/volumes?q=" + @search_string
@@ -44,7 +43,6 @@ class GoogleBooksList
         rescue RestClient::ExceptionWithResponse => e
             puts("error, please type in the name, genre or topic of a book")
         end
-
         JSON.parse(response.body)
     end
 end

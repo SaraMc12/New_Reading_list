@@ -17,8 +17,9 @@ class UserPrompt
         puts(books)
         return(books)
     end
-    
+
     def select_one_book
+        puts "/"
         puts "Please select a book to save to your reading list using the number id. ex: 1 (for book choice 1)"
     end
 
@@ -30,8 +31,7 @@ class UserPrompt
 
     def confirm_message
         puts "your book has been saved to your readingList"
-        end
-
+    end 
 end 
 
 
